@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculators</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="container">
+            <h1>Discount Calculator</h1>
+            <form id="discountCalculator">
+                <div class="input-group">
+                    <label for="amountPaid">Amount Paid - Total (€/$/£...):</label>
+                    <input type="number" id="amountPaid" required>
+                </div>
+                <div class="input-group">
+                    <label for="daysLeft">Days Left:</label>
+                    <select id="daysLeft">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="6+">6+</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="didTravel">Did the Buyer Travel?</label>
+                    <select id="didTravel">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="categoryDifference">Category Difference:</label>
+                    <select id="categoryDifference">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="sectorDifference">Sector Difference:</label>
+                    <select id="sectorDifference">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="rowDifference">Row Difference:</label>
+                    <select id="rowDifference">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="separateSeats">Separate Seats:</label>
+                    <select id="separateSeats">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="formatDifference">Format Difference:</label>
+                    <select id="formatDifference">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="satisfaction">Satisfaction:</label>
+                    <select id="satisfaction">
+                        <option value="Indifferent">Indifferent</option>
+                        <option value="Slightly upset">Slightly upset</option>
+                        <option value="Moderately upset">Moderately upset</option>
+                        <option value="Very angry">Very angry</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="topBuyer">Top Buyer:</label>
+                    <select id="topBuyer">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="majorEvent">Major Event:</label>
+                    <select id="majorEvent">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <button type="button" onclick="calculateDiscount()">Calculate</button>
+            </form>
+            <div id="results">
+                <p>Discount %: <span id="discountPercentage"></span></p>
+                <p>Discount Amount: <span id="discountAmount"></span></p>
+                <p>Discount Type: <span id="discountType"></span></p>
+                <p>Need TL Approval?: <span id="tlApproval"></span></p>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Replacement Calculator</h1>
+            <form id="replacementCalculator">
+                <div class="input-group">
+                    <label for="amountPaid">Amount Paid - Total (€/$/£...):</label>
+                    <input type="number" id="amount-paid" required>
+                </div>
+                <div class="input-group">
+                    <label for="originalPayout">Original Payout - Total (€/$/£...):</label>
+                    <input type="number" id="original-payout" required>
+                </div>
+                <div class="input-group">
+                    <label for="numberTickets">Number of Tickets:</label>
+                    <input type="number" id="number-tickets" required>
+                </div>
+                <div class="input-group">
+                    <label for="usaEvent">Is this a USA event?</label>
+                    <select id="usa-event">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="issueType">Issue:</label>
+                    <select id="issue-type">
+                        <option value="Subs: seller's error">Subs: seller's error</option>
+                        <option value="Subs: Logistic issue">Subs: Logistic issue</option>
+                        <option value="Subs: SHI / Tech error">Subs: SHI / Tech error</option>
+                        <option value="Cancel: seller's error">Cancel: seller's error</option>
+                        <option value="Wrong tix: seller's error">Wrong tix: seller's error</option>
+                        <option value="Refund: Logistics/ SHI/Tech issue">Refund: Logistics/ SHI/Tech issue</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="subsType">Subs Type:</label>
+                    <select id="subs-type">
+                        <option value="Listing">Listing</option>
+                        <option value="Extra payment">Extra payment</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="newTicketPrice">New Ticket Price - per ticket (€/$/£...):</label>
+                    <input type="number" id="new-ticket-price" title="Please, type the new tickets cost: Ticket Price (as displayed on the listing) x Number of tickets" required>
+                </div>
+                <div class="input-group">
+                    <label for="sellerType">Original Seller's Type:</label>
+                    <select id="seller-type">
+                        <option value="Consumer Seller">Consumer Seller</option>
+                        <option value="Broker - Top Seller">Broker - Top Seller</option>
+                        <option value="Aggregator">Aggregator (TEVO, Logitix…)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="pendingPayments">Pending Payments: Future Sales:</label>
+                    <select id="pending-payments">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="majorEvent">Major Event:</label>
+                    <select id="major-event" title="Major Events examples: World Cup, Six Nations, EURO, Champions League final">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="massiveFailure">Massive Failure:</label>
+                    <select id="massive-failure">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="hotRatg">Hot RATG?</label>
+                    <select id="hot-ratg">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <button type="button" onclick="calculateReplacement()">Calculate</button>
+            </form>
+            <div id="result-container">
+                <h2>Results</h2>
+                <div id="estimated-loss">Estimated Loss: </div>
+                <div id="estimated-penalty">Estimated Penalty: </div>
+                <div id="tl-approval">Need TL Approval: </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>PENALTY & LOSS CALCULATOR</h1>
+            <form id="penaltyCalculator">
+                <div class="input-group">
+                    <label for="amountPaid">Amount paid - total:</label>
+                    <input type="number" id="amountPaid">
+                </div>
+                <div class="input-group">
+                    <label for="originalPayout">Original Payout - total:</label>
+                    <input type="number" id="originalPayout">
+                </div>
+                <div class="input-group">
+                    <label for="newPayout">New Payout - total:</label>
+                    <input type="number" id="newPayout">
+                </div>
+                <h2>Commissions - original sale</h2>
+                <div class="input-group">
+                    <label for="buyFee">Buy fee:</label>
+                    <input type="number" id="buyFee">
+                </div>
+                <div class="input-group">
+                    <label for="sellFee">Sell fee:</label>
+                    <input type="number" id="sellFee">
+                </div>
+                <div class="input-group">
+                    <label for="issue">Issue:</label>
+                    <select id="issue">
+                        <option>Subs: seller's error</option>
+                        <option>Subs: Logistic issue</option>
+                        <option>Subs: SHI / Tech error</option>
+                        <option>Cancel: seller's error</option>
+                        <option>Wrong tix: seller's error</option>
+                        <option>Refund: Logistics/ SHI/Tech issue</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="sellerType">Seller's type:</label>
+                    <select id="sellerType">
+                        <option>Consumer Seller</option>
+                        <option>Broker - Top Seller</option>
+                        <option>Aggregator (TEVO, Logitix…)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="pendingPayments">Pending payments: future sales:</label>
+                    <select id="pendingPayments">
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+                </div>
+                <div id="amountPaymentsGroup" class="input-group" style="display:none;">
+                    <label for="amountPayments">Amount payments: future sales:</label>
+                    <input type="number" id="amountPayments">
+                </div>
+                <div class="input-group">
+                    <label for="majorEvent" title="Major Events examples: World Cup, Six Nations, EURO, Champions League final">Major event:</label>
+                    <select id="majorEvent">
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="massiveFailure">Massive failure:</label>
+                    <select id="massiveFailure">
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+                </div>
+                <button type="button" onclick="calculatePenalty()">Calculate</button>
+            </form>
+            <h2>RESOLUTION</h2>
+            <div class="result">
+                <p>Loss: <span id="lossResult">0.0</span></p>
+                <p>Penalty: <span id="penaltyResult">0.0</span></p>
+                <p>Penalty type: <span id="penaltyTypeResult"></span></p>
+                <p>Need TL Approval? <span id="tlApprovalResult"></span></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
